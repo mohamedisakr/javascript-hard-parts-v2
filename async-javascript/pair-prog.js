@@ -201,6 +201,10 @@ class SecondClock {
     // ADD CODE HERE
   }
   // ADD METHODS HERE
+  start() {
+    this.cb();
+  }
+  reset() {}
 }
 
 // UNCOMMENT THESE TO TEST YOUR WORK!
