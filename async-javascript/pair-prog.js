@@ -103,14 +103,24 @@ milliseconds, but then automatically stop after duration milliseconds.
 Then pass the below sayHi function into an invocation of everyXsecsForYsecs with 
 1000 interval time an 5000 duration time. What do you expect to happen?
 */
-function everyXsecsForYsecs() {
+function everyXsecsForYsecs(func, interval, duration) {
   // ADD CODE HERE
+  setTimeout(
+    clearInterval,
+    duration * 1000,
+    setInterval(func, interval * 1000)
+  );
 }
+
 // Uncomment the following lines to check your work!
-// function theEnd() {
-//   console.log('This is the end!');
-// }
-// everyXsecsForYsecs(theEnd, 2, 20); // should invoke theEnd function every 2 seconds, for 20 seconds): This is the end!
+function theEnd() {
+  console.log("This is the end!");
+}
+
+everyXsecsForYsecs(theEnd, 2, 20);
+// should invoke theEnd function every 2 seconds, for 20 seconds): This is the end!
+
+//=========================================================================================//
 
 /* CHALLENGE 7 */
 /*
