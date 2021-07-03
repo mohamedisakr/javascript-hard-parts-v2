@@ -229,13 +229,35 @@ For examples of debouncing, check out
 https://css-tricks.com/debouncing-throttling-explained-examples/
 */
 function debounce(callback, interval) {
-  // ADD CODE HERE
+  let timeOutId;
+  return function (...args) {
+    if (timeOutId) {
+      clearTimeout(timeOutId);
+    } else {
+      timeOutId = setTimeout(() => {
+        callback(...args);
+      }, interval);
+    }
+  };
 }
 
 // UNCOMMENT THESE TO TEST YOUR WORK!
-// function giveHi() { return 'hi'; }
-// const giveHiSometimes = debounce(giveHi, 3000);
-// console.log(giveHiSometimes()); // -> 'hi'
-// setTimeout(function() { console.log(giveHiSometimes()); }, 2000); // -> undefined
-// setTimeout(function() { console.log(giveHiSometimes()); }, 4000); // -> undefined
-// setTimeout(function() { console.log(giveHiSometimes()); }, 8000); // -> 'hi'
+function giveHi() {
+  console.log("hi"); //return "hi";
+}
+const giveHiSometimes = debounce(giveHi, 3000);
+console.log(giveHiSometimes()); // -> 'hi'
+
+/*
+setTimeout(function () {
+  console.log(giveHiSometimes());
+}, 2000); // -> undefined
+
+setTimeout(function () {
+  console.log(giveHiSometimes());
+}, 4000); // -> undefined
+
+setTimeout(function () {
+  console.log(giveHiSometimes());
+}, 8000); // -> 'hi'
+*/
