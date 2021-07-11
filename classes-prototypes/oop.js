@@ -13,12 +13,12 @@ Let's call this function makePerson. This function will:
 'age' argument passed into the function
 4. Return the object
 */
-function makePerson(name, age) {
-  // add code here
-  return { name, age };
-}
+// function makePerson(name, age) {
+//   // add code here
+//   return { name, age };
+// }
 
-const vicky = makePerson("Vicky", 24);
+// const vicky = makePerson("Vicky", 24);
 
 // /********* Uncomment these lines to test your work! *********/
 // console.log(vicky.name); // -> Logs 'Vicky'
@@ -45,31 +45,53 @@ const vicky = makePerson("Vicky", 24);
 // Create a function personFromPersonStore that takes as input a name and an age.
 // When called, the function will create person objects using the Object.create
 // method on the personStore object.
-function personFromPersonStore(name, age) {
-  // add code here
-  const newPerson = Object.create(personStore);
-  return newPerson;
-}
+// function personFromPersonStore(name, age) {
+//   // add code here
+//   const newPerson = Object.create(personStore);
+//   newPerson.name = name;
+//   newPerson.age = age;
+//   return newPerson;
+// }
 
-const personStore = (name, age) => {
-  // add code here
-  greet: () => {
-    console.log("hello");
-  };
-  return { name, age, greet };
-};
-const sandra = personFromPersonStore("Sandra", 26);
+// const personStore = {
+//   greet: function () {
+//     console.log("hello");
+//   },
+// };
 
-// /********* Uncomment these lines to test your work! *********/
-console.log(sandra.name); // -> Logs 'Sandra'
-console.log(sandra.age); //-> Logs 26
-sandra.greet(); //-> Logs 'hello'
+// // /********* Uncomment these lines to test your work! *********/
+// const sandra = personFromPersonStore("Sandra", 26);
+// console.log(sandra.name); // -> Logs 'Sandra'
+// console.log(sandra.age); //-> Logs 26
+// sandra.greet(); //-> Logs 'hello'
 
 /*** CHALLENGE 4 ***/
 // Without editing the code you've already written, add an introduce method to the
 // personStore object that logs "Hi, my name is [name]".
 // add code here
 
+// function personFromPersonStore(name, age) {
+//   // add code here
+//   const newPerson = Object.create(personStore);
+//   newPerson.name = name;
+//   newPerson.age = age;
+//   return newPerson;
+// }
+
+// const personStore = {
+//   greet: function () {
+//     console.log("hello");
+//   },
+//   introduce: function () {
+//     console.log(`Hi, my name is ${this.name}`);
+//   },
+// };
+
+// // /********* Uncomment these lines to test your work! *********/
+// const sandra = personFromPersonStore("Sandra", 26);
+// console.log(sandra.name); // -> Logs 'Sandra'
+// console.log(sandra.age); //-> Logs 26
+// sandra.greet(); //-> Logs 'hello'
 // sandra.introduce(); // -> Logs 'Hi, my name is Sandra'
 
 /****************************************************************
@@ -80,25 +102,36 @@ sandra.greet(); //-> Logs 'hello'
 // Create a function PersonConstructor that uses the this keyword to save a
 // single property onto its scope called greet.
 // greet should be a function that logs the string 'hello'.
-function PersonConstructor() {
-  // add code here
-}
+// function PersonConstructor() {
+//   // add code here
+//   this.greet = function () {
+//     console.log("hello");
+//   };
+// }
 
-// /********* Uncomment this line to test your work! *********/
-const simon = new PersonConstructor();
+// // /********* Uncomment this line to test your work! *********/
+// const simon = new PersonConstructor();
 // simon.greet(); // -> Logs 'hello'
 
 /*** CHALLENGE 6 ***/
 // Create a function personFromConstructor that takes as input a name and an age.
 // When called, the function will create person objects using the new keyword
 // instead of the Object.create method.
-function personFromConstructor(name, age) {
-  // add code here
-}
+// function personFromConstructor(name, age) {
+//   // add code here
+//   this.name = name;
+//   this.age = age;
+//   // greet = () => {
+//   //   console.log("hello");
+//   // };
+// }
 
-const mike = personFromConstructor("Mike", 30);
+// personFromConstructor.prototype.greet = function () {
+//   console.log("hello");
+// };
 
-// /********* Uncomment these lines to test your work! *********/
+// // /********* Uncomment these lines to test your work! *********/
+// const mike = new personFromConstructor("Mike", 30);
 // console.log(mike.name); // -> Logs 'Mike'
 // console.log(mike.age); //-> Logs 30
 // mike.greet(); //-> Logs 'hello'
@@ -108,6 +141,28 @@ const mike = personFromConstructor("Mike", 30);
 // to the PersonConstructor function that logs "Hi, my name is [name]".
 // add code here
 
+// function personFromConstructor(name, age) {
+//   // add code here
+//   this.name = name;
+//   this.age = age;
+//   // greet = () => {
+//   //   console.log("hello");
+//   // };
+// }
+
+// personFromConstructor.prototype.greet = function () {
+//   console.log("hello");
+// };
+
+// personFromConstructor.prototype.introduce = function () {
+//   console.log(`Hi, my name is ${this.name}`);
+// };
+
+// // /********* Uncomment these lines to test your work! *********/
+// const mike = new personFromConstructor("Mike", 30);
+// console.log(mike.name); // -> Logs 'Mike'
+// console.log(mike.age); //-> Logs 30
+// mike.greet(); //-> Logs 'hello'
 // mike.introduce(); // -> Logs 'Hi, my name is Mike'
 
 /****************************************************************
@@ -118,16 +173,18 @@ const mike = personFromConstructor("Mike", 30);
 // Create a class PersonClass. PersonClass should have a constructor that is
 // passed an input of name and saves it to a property by the same name.
 // PersonClass should also have a method called greet that logs the string 'hello'.
-class PersonClass {
-  constructor() {
-    // add code here
-  }
+// class PersonClass {
+//   constructor(name) {
+//     this.name = name;
+//   }
 
-  // add code here
-}
+//   greet() {
+//     console.log("hello");
+//   }
+// }
 
-// /********* Uncomment this line to test your work! *********/
-const george = new PersonClass();
+// // /********* Uncomment this line to test your work! *********/
+// const george = new PersonClass();
 // george.greet(); // -> Logs 'hello'
 
 /*** CHALLENGE 9 ***/
@@ -136,8 +193,17 @@ const george = new PersonClass();
 // introduce method. When called, introduce should log the string 'Hello World, my name is [name]'.
 // add code here
 
-// /********* Uncomment these lines to test your work! *********/
-// const thai = new DeveloperClass('Thai', 32);
+// class DeveloperClass extends PersonClass {
+//   constructor(name) {
+//     super(name);
+//   }
+//   introduce() {
+//     console.log(`Hello World, my name is ${this.name}`);
+//   }
+// }
+
+// // /********* Uncomment these lines to test your work! *********/
+// const thai = new DeveloperClass("Thai", 32);
 // console.log(thai.name); // -> Logs 'Thai'
 // thai.introduce(); //-> Logs 'Hello World, my name is Thai'
 
@@ -147,7 +213,7 @@ const george = new PersonClass();
 
 const userFunctionStore = {
   sayType: function () {
-    console.log("I am a " + this.type);
+    console.log("I am " + this.type);
   },
 };
 
@@ -162,31 +228,62 @@ function userFactory(name, score) {
 /*** CHALLENGE 10 ***/
 // Create an object adminFunctionStore that has access to all methods in
 // the userFunctionStore object, without copying them over individually.
-const adminFunctionStore = {
-  // add code here
-};
+// const adminFunctionStore = {
+//   // add code here
+//  Object.create(userFunctionStore)
+// };
 
 /*** CHALLENGE 11, 12, 13 ***/
 // Create an adminFactory function that creates an object with all the same
 // data fields (and default values) as objects of the userFactory class,
 // but without copying each data field individually.
-function adminFactory(name, score) {
-  // add code here
-}
+// function adminFactory(name, score) {
+//   return new userFactory(name, score);
+// }
+
+// const admin = new adminFactory("admin", 100);
+// console.log(admin);
 
 /*** CHALLENGE 12 ***/
 // Then make sure the value of the 'type' field for adminFactory objects is 'Admin'
 // instead of 'User'.
+// function adminFactory(name, score) {
+//   const admin = new userFactory(name, score);
+//   admin.type = "Admin";
+//   return admin;
+// }
+
+// const admin = new adminFactory("admin", 100);
+// console.log(`user type is ${admin.type}`);
 
 /*** CHALLENGE 13 ***/
 // Make sure that adminFactory objects have access to adminFunctionStore methods,
 // without copying them over.
+// function adminFactory(name, score) {
+//   const admin = new userFactory(name, score);
+//   admin.type = "Admin";
+//   return admin;
+// }
+
+// const admin = new adminFactory("admin", 100);
+// admin.sayType();
 
 /*** CHALLENGE 14 ***/
 /* Put code here for a method called sharePublicMessage*/
 // Created a method called sharePublicMessage that logs 'Welcome users!' and will
 // be available to adminFactory objects, but not userFactory objects.
 // Do not add this method directly in the adminFactory function.
+
+function adminFactory(name, score) {
+  const admin = new userFactory(name, score);
+  admin.type = "Admin";
+  return admin;
+}
+
+adminFactory.prototype.sharePublicMessage = function () {
+  console.log("Welcome users!");
+};
+
 const adminFromFactory = adminFactory("Eva", 5);
 
 // /********* Uncomment these lines to test your work! *********/
